@@ -22,12 +22,15 @@ function renderMembers(){
         member.innerHTML=user;
     }, 2000);
 }
+function  addUser(){
+    return new Promise((resolve, reject)=>{
+        
+        users.push({name:memname.value, surname:surname.value, age: age.value});
+        resolve();
+        console.log(users);
+    })
+    }
 renderMembers();
 btn.onclick=function(){
-function  addUser(calback){
-        users.push({name:memname.value, surname:surname.value, age: age.value});
-        calback();
-        console.log(users);
-    }
-    addUser(renderMembers);
+    addUser().then(renderMembers);
 } 
